@@ -17,6 +17,18 @@ public class UsuarioRepository {
 		return usuario;
 	}
 	
+	public Usuario findById(String id) {
+		for (Usuario usuario : baseDeDatos) {
+			if(usuario.getId().equals(id)) {
+				return usuario;
+			}
+		}
+		return null;
+	}
+	
+	public List<Usuario> findAll(){
+		return new ArrayList<>(baseDeDatos);
+	}
 	
 	
 	
