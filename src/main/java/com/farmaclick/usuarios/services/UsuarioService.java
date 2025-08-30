@@ -1,5 +1,7 @@
 package com.farmaclick.usuarios.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,14 @@ public class UsuarioService {
 	
 	public Usuario save(Usuario usuario) {
 		return usuarioRepository.save(usuario);
+	}
+	
+	public Usuario findById(String id) {
+		return usuarioRepository.findById(id);
+	}
+	
+	public List<Usuario> findAll(){
+		return usuarioRepository.findAll();
 	}
 	
 }
