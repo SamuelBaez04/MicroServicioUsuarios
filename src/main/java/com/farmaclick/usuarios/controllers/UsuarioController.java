@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -107,4 +108,22 @@ public class UsuarioController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@DeleteMapping("/{id}")
+	@Operation (summary = "Eliminar Usuario", description = "Elimina el usuario basado en su id")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "204", description = "Usuario eliminado exitosamente"),
+			@ApiResponse(responseCode = "404", description = "Usuario no encontrado para su eliminacion")
+	})
+	public ResponseEntity<Void> deleteById(@PathVariable @Parameter(description = "Id del usuario") String id){
+		Usuario usuarioExistente = usuarioService.findById(id);
+		if(usuarioExistente != null) {
+			usuarioService.deleteById(id);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	
 }

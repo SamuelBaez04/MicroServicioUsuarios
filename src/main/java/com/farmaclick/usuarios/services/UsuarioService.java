@@ -65,4 +65,9 @@ public class UsuarioService {
 		return null;
 	}
 	
+	public void deleteById(String id) {
+		 usuarioRepository.deleteById(id);
+	}
+	
+	
 }
