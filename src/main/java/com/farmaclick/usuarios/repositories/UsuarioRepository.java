@@ -30,6 +30,14 @@ public class UsuarioRepository {
 		return new ArrayList<>(baseDeDatos);
 	}
 	
-	
+	public Usuario update(Usuario usuario) {
+		for(int i = 0; i < baseDeDatos.size(); i++) {
+			if(baseDeDatos.get(i).getId().equals(usuario.getId())) {
+				baseDeDatos.set(i, usuario);
+				return usuario;
+			}
+		}
+		return null;
+	}
 	
 }
