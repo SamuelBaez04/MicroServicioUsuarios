@@ -40,4 +40,14 @@ public class UsuarioRepository {
 		return null;
 	}
 	
+	public void deleteById(String id) {
+		for(int i = 0; i < baseDeDatos.size(); i++) {
+			if(baseDeDatos.get(i).getId().equals(id)) {
+				baseDeDatos.remove(i);
+				return;
+			}
+		}
+	}
+	
+	
 }
