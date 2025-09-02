@@ -1,6 +1,6 @@
 # MicroServicioUsuarios
 
-# 🧑‍💻 Microservicio de Usuarios - FarmaClick
+# 🧑‍💻 Microservicio de Usuarios - FarmaSync
 
 Este repositorio contiene el microservicio de **Usuarios** para el sistema **FarmaClick**, desarrollado en **Spring Boot** siguiendo la arquitectura multicapa y el flujo de trabajo con **Gitflow**.  
 
