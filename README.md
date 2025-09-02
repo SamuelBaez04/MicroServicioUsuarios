@@ -1,33 +1,66 @@
-# MicroServicioUsuarios
+# 👥 FarmaSync - Microservicio de Usuarios
 
-# 🧑‍💻 Microservicio de Usuarios - FarmaSync
-
-Este repositorio contiene el microservicio de **Usuarios** para el sistema **FarmaClick**, desarrollado en **Spring Boot** siguiendo la arquitectura multicapa y el flujo de trabajo con **Gitflow**.  
-
-## 📌 Descripción
-El microservicio gestiona la información relacionada con los **usuarios** del sistema, permitiendo:
-- Registrar usuarios.
-- Consultar usuarios.
-- Actualizar datos.
-- Eliminar usuarios.
-
-> ⚠️ En esta versión, la "base de datos" se simula con listas en memoria (`ArrayList`), cumpliendo los requisitos del entregable.
+🚀 **Descripción**  
+Este proyecto es el **Microservicio de Usuarios** dentro del sistema de gestión farmacéutica **FarmaSync**.  
+Su responsabilidad principal es la **gestión de usuarios**, ofreciendo endpoints REST para el registro, consulta, actualización y eliminación de usuarios.  
+Está diseñado con **Spring Boot** bajo una arquitectura en capas y expone documentación con **Swagger/OpenAPI**.
 
 ---
 
-## 🏗️ Tecnologías
-- **Java 17**
-- **Spring Boot 3.4.3**
-- **Maven**
-- **Lombok**
-- **Swagger (Springdoc OpenAPI)**
+## 🚀 MICROSERVICIO (Puerto 8013)
+
+📌 **Endpoints principales**
+- 📨 `/farmaclick/usuarios` → Gestión completa de usuarios  
 
 ---
 
-## 📂 Estructura del proyecto
+## 🏥 MICROSERVICIOS RELACIONADOS
+- 👥 **Usuarios Service** 
+- 📦 **Pedidos Service** 
+- 💰 **Ventas Service**   
+- 📊 **Inventario Service**   
 
-src/main/java/com/farmaclick/usuarios
-├── controllers     # Controladores REST (API)
-├── models          # Entidades o clases de dominio
-├── repositories    # Acceso a datos (simulado con ArrayList)
-└── services        # Lógica de negocio
+*(Todos orquestados mediante el API Gateway )*
+
+---
+
+## 🔧 Tecnologías
+
+- Java 17  
+- Spring Boot 3.3.4  
+- Spring Web  
+- Springdoc OpenAPI 2.6.0 (Swagger UI)  
+- Maven  
+- Arquitectura por capas (Controllers, Services, Repositories, Models)  
+- Simulación de BD con `ArrayList` (sin conexión a DB en esta versión)
+
+---
+
+## 🔌 Endpoints del Microservicio
+
+Base URL: `http://localhost:8013/farmaclick/usuarios`
+
+| Método   | Endpoint          | Descripción                         | Códigos de estado posibles |
+|----------|-------------------|-------------------------------------|----------------------------|
+| **POST**   | `/`               | Crear un nuevo usuario              | `201 Created`, `400 Bad Request`, `409 Conflict` |
+| **GET**    | `/`               | Listar todos los usuarios           | `200 OK` |
+| **GET**    | `/{id}`           | Obtener un usuario por ID           | `200 OK`, `404 Not Found` |
+| **PUT**    | `/{id}`           | Actualizar usuario (reemplazo total)| `200 OK`, `400 Bad Request`, `404 Not Found` |
+| **PATCH**  | `/{id}`           | Actualización parcial de usuario    | `200 OK`, `400 Bad Request`, `404 Not Found` |
+| **DELETE** | `/{id}`           | Eliminar un usuario                 | `204 No Content`, `404 Not Found` |
+
+---
+
+## 📚 Documentación Swagger
+
+Accede a la documentación interactiva en:
+
+http://localhost:8013/swagger-ui.html
+
+**📝 Características implementadas**
+
+✅ Gestión completa de usuarios (CRUD)
+✅ Manejo de estados HTTP apropiados
+✅ Simulación de base de datos en memoria con ArrayList
+✅ Documentación automática con Swagger/OpenAPI
+✅ Arquitectura en capas para mejor mantenimiento
