@@ -10,7 +10,7 @@ Está diseñado con **Spring Boot** bajo una arquitectura en capas y expone docu
 ## 🚀 MICROSERVICIO (Puerto 8013)
 
 📌 **Endpoints principales**
-- 📨 `/farmaclick/usuarios` → Gestión completa de usuarios  
+- 📨 `/farmasync/usuarios` → Gestión completa de usuarios  
 
 ---
 
